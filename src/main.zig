@@ -3,11 +3,11 @@ const vk = @import("vulkan");
 
 pub fn main() !void {
 
-    var epd: vk.instance = undefined;
+    var epd: vk.Instance = undefined;
 
     var ac: vk.AllowcationCallbacks = undefined;
 
-    var ici: vk.instanceCreateInfo = undefined;
+    var ici: vk.InstanceCreateInfo = undefined;
 
     vk.createInstance(ici, ac, epd);
 
