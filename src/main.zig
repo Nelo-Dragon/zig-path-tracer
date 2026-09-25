@@ -3,7 +3,7 @@ const vk = @import("vulkan");
 
 pub fn main() !void {
 
-    var ac: vk.AllowcationCallbacks = undefined;
+    var ac: vk.AllocationCallbacks = undefined;
 
     var ici: vk.InstanceCreateInfo = undefined;
 
