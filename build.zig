@@ -57,6 +57,10 @@ pub fn build(b: *std.Build) void {
     //
     // If neither case applies to you, feel free to delete the declaration you
     // don't need and to put everything under a single module.
+    const vulkan = b.dependency("vulkan", .{
+        .registry = b.path("../../../usr/share/vulkan/registry/vk.xml"),
+    });
+
     const exe = b.addExecutable(.{
         .name = "zig_path_tracer",
         .root_module = b.createModule(.{
@@ -82,6 +86,8 @@ pub fn build(b: *std.Build) void {
             },
         }),
     });
+
+    exe.root_module.addImport("vulkan", vulkan.module("vulkan-zig"));
 
     // This declares intent for the executable to be installed into the
     // install prefix when running `zig build` (i.e. when executing the default
